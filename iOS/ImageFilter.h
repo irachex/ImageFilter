@@ -19,14 +19,10 @@ Copyright (c) 2012 Drew Dahlman MIT LICENSE
 
 #import <Foundation/Foundation.h>
 
-#ifdef CORDOVA_FRAMEWORK
-#import <Cordova/CDVPlugin.h>
-#else
-#import "CDVPlugin.h"
-#endif
+#import <CORDOVA/CDVPlugin.h>
 
 
-@interface ImageFilter : PGPlugin {
+@interface ImageFilter : CDVPlugin {
     NSString* callbackID;
 }
 @property (nonatomic, retain) NSString* callbackID;
