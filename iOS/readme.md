@@ -1,25 +1,32 @@
-<b>ImageFilter</b>
+##ImageFilter
 
 ImageFilter is an easy to use phonegap/Cordova plugin that allows you to apply filters to images and save them out as hi-res versions.
 
 Read more here http://www.drewdahlman.com/meusLabs/?p=138
 
-<b>To USE:<b><br>
-<pre>
+####Usuage
+1. Drag plugin files from Finder to Plugins folder in your project in XCode, using "Create groups for any added folders"
+2. Add the .js files to your www folder on disk, and add reference(s) to the .js files as tags in your html file(s)
+3. Add new entry with key `ImageFilter` and value `ImageFilter` to Plugins in PhoneGap.plist/Cordova.plist
+
+####Javascript Interface
+
+```javascript
 plugins.ImageFilter.FILTER_NAME(
 	successCallback{
 	image:imageURI,
 	save:'false' // TRUE IF SAVE
 });
-</pre>
+```
 
-<br>NOTES:</b><br>
+####Notes
 - This plugin requires iOS 5+
 
-<b>UPDATES</b><br>
-- Addressed Image caching issue. ( thanks to zsprawl )
+####Updates
+* Support Cordova 2.1.0
+* Addressed Image caching issue. ( thanks to zsprawl )
 
-<b>AVAILABLE CORE IMAGE FILTERS</b><br>
+####AVAILABLE CORE IMAGE FILTERS
 <pre>
 	CIAdditionCompositing
 	CIAffineTransform
