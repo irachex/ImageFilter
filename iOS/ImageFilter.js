@@ -11,8 +11,7 @@ ImageFilter.prototype.clean = function (options) {
 
     cordovaRef.exec("ImageFilter.clean");
 };
-ImageFilter.prototype.none = function (done,options) {
-    //console.log(options+" "+done);
+ImageFilter.prototype.use = function(name, done, options) {
     var defaults = {
         image: '',
         save: '',
@@ -20,55 +19,29 @@ ImageFilter.prototype.none = function (done,options) {
     for(var key in defaults) {
         if(typeof options[key] !== "undefined") defaults[key] = options[key];
     }
+    return cordovaRef.exec(done, null, "ImageFilter", name, [defaults]);
+}
 
-    return cordovaRef.exec(done,null,"ImageFilter","none",[defaults]);
+ImageFilter.prototype.none = function(done, options) {
+    return this.use('none');
 };
-ImageFilter.prototype.sunnySide = function (done,options) {
-    var defaults = {
-        image: '',
-        save: '',
-    };
-    for(var key in defaults) {
-        if(typeof options[key] !== "undefined") defaults[key] = options[key];
-    }
-    return cordovaRef.exec(done,null,"ImageFilter","sunnySide",[defaults]);
+ImageFilter.prototype.sunnySide = function(done, options) {
+    return this.use('sunnySide');
 };
-ImageFilter.prototype.worn = function (done,options) {
-    var defaults = {
-        image: '',
-        save: '',
-    };
-    for(var key in defaults) {
-        if(typeof options[key] !== "undefined") defaults[key] = options[key];
-    }
-   	return cordovaRef.exec(done,null,"ImageFilter","worn",[defaults]);
+ImageFilter.prototype.worn = function(done, options) {
+    return this.use('worn');
 };
-ImageFilter.prototype.vintage = function (done,options) {
-    var defaults = {
-        image: '',
-        save: '',
-    };
-    for(var key in defaults) {
-        if(typeof options[key] !== "undefined") defaults[key] = options[key];
-    }
-    return cordovaRef.exec(done,null,"ImageFilter","vintage",[defaults]);
+ImageFilter.prototype.vintage = function(done, options) {
+    return this.use('vintage');
 };
 ImageFilter.prototype.stark = function (done,options) {
-    var defaults = {
-        image: '',
-        save: '',
-    };
-    for(var key in defaults) {
-        if(typeof options[key] !== "undefined") defaults[key] = options[key];
-    }
-    return cordovaRef.exec(done,null,"ImageFilter","stark",[defaults]);
+    return this.use('stark');
 };
 
 ImageFilter.install = function() {
     if(!window.plugins) window.plugins = {};
     if (!window.plugins.ImageFilter) window.plugins.ImageFilter = new ImageFilter();    
 }
-
 
 if (cordovaRef && cordovaRef.addConstructor) {
     cordovaRef.addConstructor(ImageFilter.install);
